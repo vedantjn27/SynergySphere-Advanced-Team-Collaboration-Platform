@@ -14,8 +14,6 @@ from fastapi import Path
 from fastapi import Query
 from bson.errors import InvalidId
 from pymongo import ReturnDocument 
-
-
 from fastapi.middleware.cors import CORSMiddleware
 
 load_dotenv()
