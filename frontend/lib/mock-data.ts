@@ -1,0 +1,192 @@
+// Mock data for SynergySphere demo
+export const mockUser = {
+  id: "user-1",
+  username: "john_doe",
+  email: "john@synergysphere.com",
+  full_name: "John Doe",
+  avatar_url: "/professional-avatar.png",
+  created_at: "2024-01-15T10:00:00Z",
+}
+
+export const mockProjects = [
+  {
+    id: "proj-1",
+    name: "Website Redesign",
+    description: "Complete overhaul of company website with modern design",
+    status: "active",
+    priority: "high",
+    start_date: "2024-01-01",
+    end_date: "2024-03-15",
+    created_at: "2024-01-01T09:00:00Z",
+    owner_id: "user-1",
+    organization_id: "org-1",
+    members: ["user-1", "user-2", "user-3"],
+  },
+  {
+    id: "proj-2",
+    name: "Mobile App Development",
+    description: "Native iOS and Android app for customer engagement",
+    status: "active",
+    priority: "medium",
+    start_date: "2024-02-01",
+    end_date: "2024-06-30",
+    created_at: "2024-02-01T09:00:00Z",
+    owner_id: "user-2",
+    organization_id: "org-1",
+    members: ["user-1", "user-2", "user-4"],
+  },
+  {
+    id: "proj-3",
+    name: "Marketing Campaign",
+    description: "Q2 digital marketing campaign across all channels",
+    status: "completed",
+    priority: "low",
+    start_date: "2024-01-15",
+    end_date: "2024-02-28",
+    created_at: "2024-01-15T09:00:00Z",
+    owner_id: "user-3",
+    organization_id: "org-1",
+    members: ["user-3", "user-4"],
+  },
+]
+
+export const mockTasks = [
+  {
+    id: "task-1",
+    title: "Design Homepage Layout",
+    description: "Create wireframes and mockups for the new homepage",
+    status: "in_progress",
+    priority: "high",
+    project_id: "proj-1",
+    assigned_to: "user-1",
+    created_by: "user-1",
+    due_date: "2024-02-15",
+    created_at: "2024-01-05T10:00:00Z",
+  },
+  {
+    id: "task-2",
+    title: "Setup Development Environment",
+    description: "Configure local development setup for the team",
+    status: "completed",
+    priority: "high",
+    project_id: "proj-1",
+    assigned_to: "user-2",
+    created_by: "user-1",
+    due_date: "2024-01-20",
+    created_at: "2024-01-05T11:00:00Z",
+  },
+  {
+    id: "task-3",
+    title: "User Authentication Flow",
+    description: "Implement secure login and registration system",
+    status: "todo",
+    priority: "medium",
+    project_id: "proj-2",
+    assigned_to: "user-1",
+    created_by: "user-2",
+    due_date: "2024-03-01",
+    created_at: "2024-02-01T09:00:00Z",
+  },
+  {
+    id: "task-4",
+    title: "Content Strategy",
+    description: "Develop content calendar and messaging strategy",
+    status: "in_progress",
+    priority: "medium",
+    project_id: "proj-3",
+    assigned_to: "user-3",
+    created_by: "user-3",
+    due_date: "2024-02-10",
+    created_at: "2024-01-20T14:00:00Z",
+  },
+]
+
+export const mockUsers = [
+  {
+    id: "user-1",
+    username: "john_doe",
+    email: "john@synergysphere.com",
+    full_name: "John Doe",
+    avatar_url: "/professional-avatar-male.jpg",
+    created_at: "2024-01-15T10:00:00Z",
+  },
+  {
+    id: "user-2",
+    username: "sarah_wilson",
+    email: "sarah@synergysphere.com",
+    full_name: "Sarah Wilson",
+    avatar_url: "/professional-avatar-female.jpg",
+    created_at: "2024-01-10T10:00:00Z",
+  },
+  {
+    id: "user-3",
+    username: "mike_chen",
+    email: "mike@synergysphere.com",
+    full_name: "Mike Chen",
+    avatar_url: "/professional-avatar-asian-male.jpg",
+    created_at: "2024-01-08T10:00:00Z",
+  },
+  {
+    id: "user-4",
+    username: "emma_davis",
+    email: "emma@synergysphere.com",
+    full_name: "Emma Davis",
+    avatar_url: "/professional-avatar-blonde-female.jpg",
+    created_at: "2024-01-12T10:00:00Z",
+  },
+]
+
+export const mockNotifications = [
+  {
+    id: "notif-1",
+    type: "task_assigned",
+    title: "New Task Assigned",
+    message: "You have been assigned to 'Design Homepage Layout'",
+    read: false,
+    created_at: "2024-02-05T14:30:00Z",
+    user_id: "user-1",
+  },
+  {
+    id: "notif-2",
+    type: "comment",
+    title: "New Comment",
+    message: "Sarah Wilson commented on 'Setup Development Environment'",
+    read: false,
+    created_at: "2024-02-05T12:15:00Z",
+    user_id: "user-1",
+  },
+  {
+    id: "notif-3",
+    type: "project_update",
+    title: "Project Updated",
+    message: "Website Redesign project deadline has been extended",
+    read: true,
+    created_at: "2024-02-04T16:45:00Z",
+    user_id: "user-1",
+  },
+]
+
+export const mockComments = [
+  {
+    id: "comment-1",
+    content: "Great progress on the wireframes! The layout looks clean and user-friendly.",
+    task_id: "task-1",
+    user_id: "user-2",
+    created_at: "2024-02-03T10:30:00Z",
+  },
+  {
+    id: "comment-2",
+    content: "I've completed the initial setup. Ready for the next phase!",
+    task_id: "task-2",
+    user_id: "user-2",
+    created_at: "2024-01-18T15:20:00Z",
+  },
+]
+
+export const mockOrganization = {
+  id: "org-1",
+  name: "SynergySphere Demo Company",
+  description: "A forward-thinking technology company focused on innovation",
+  created_at: "2024-01-01T00:00:00Z",
+  owner_id: "user-1",
+}
