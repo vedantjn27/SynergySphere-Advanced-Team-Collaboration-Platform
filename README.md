@@ -10,19 +10,19 @@ In modern workplaces, teams struggle with scattered information, unclear progres
 
 ```mermaid
 graph TD
-    Client[Frontend UI - Next.js] -->|REST API Requests| FastAPI[Backend API - FastAPI]
-    FastAPI --> |PyMongo / Motor| MongoDB[(MongoDB Database)]
+    Client["Frontend UI - Next.js"] -->|"REST API Requests"| FastAPI["Backend API - FastAPI"]
+    FastAPI --> |"PyMongo / Motor"| MongoDB[("MongoDB Database")]
     
-    subgraph Frontend [Frontend (Next.js)]
-        UI[Radix UI / Tailwind CSS]
-        State[React Hooks / Context]
-        Forms[React Hook Form / Zod]
+    subgraph Frontend["Frontend (Next.js)"]
+        UI["Radix UI / Tailwind CSS"]
+        State["React Hooks / Context"]
+        Forms["React Hook Form / Zod"]
     end
     
-    subgraph Backend [Backend (FastAPI)]
-        Auth[JWT Authentication]
-        Routes[Routers: Users, Orgs, Projects, Tasks, Comments]
-        DB_Models[Pydantic Models]
+    subgraph Backend["Backend (FastAPI)"]
+        Auth["JWT Authentication"]
+        Routes["Routers: Users, Orgs, Projects, Tasks, Comments"]
+        DB_Models["Pydantic Models"]
     end
     
     Client --> Frontend
