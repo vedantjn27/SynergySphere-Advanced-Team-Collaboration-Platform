@@ -1,39 +1,67 @@
-"SynergySphere – Advanced Team 
-Collaboration Platform" 
+# SynergySphere – Advanced Team Collaboration Platform
 
-Overall Vision: SynergySphere is built on a simple idea: teams do their best work when their 
-tools truly support how they think, communicate, and move forward together. This platform aims 
-to go beyond traditional project management software by becoming an intelligent backbone for 
-teams — helping them stay organized, communicate better, manage resources more effectively, 
-and make informed decisions without friction. 
-At its core, SynergySphere is about helping teams operate at their best — continuously 
-improving, staying aligned, and working smarter every day. 
+## 🎯 Problem Statement
+In modern workplaces, teams struggle with scattered information, unclear progress tracking, and fragmented communication. Important files and decisions are lost in various chat apps and emails. Without a centralized hub, project visibility is poor, leading to missed deadlines, resource overload, and lack of alignment among team members. Existing tools are often too rigid or only solve part of the problem.
 
-Target User Pain Points Addressed: SynergySphere is designed to directly address common 
-and persistent pain points experienced by teams across various domains: 
+## 💡 Solution
+**SynergySphere** is an intelligent team collaboration platform built to unify project management, task tracking, and team communication into a single, intuitive interface. It acts as the backbone for modern teams, replacing scattered workflows with a centralized, responsive system that helps teams stay organized, communicate seamlessly, and manage resources efficiently.
 
-1. Teams everywhere deal with the same headaches. SynergySphere is here to solve the ones 
-   that slow everyone down the most: 
-2. Scattered Information: Important files, chats, and decisions live in too many places. It’s 
-   hard to keep track of what’s where. 
-3. Unclear Progress: Without visibility into tasks, it’s tough to know how far along a project 
-   really is — or what’s holding it up. 
-4. Resource Overload or Confusion: Assignments can get messy. Team members end 
-   up overworked, underutilized, or unsure of what they’re supposed to do. 
-5. Deadline Surprises: We often notice we're behind when it’s already too late. 
-   SynergySphere should surface potential issues before they become real problems. 
-6. Communication Gaps: Updates get missed. People get left out of the loop. 
-   Conversations are buried in email or lost in scattered chats. 
-By addressing these pain points directly, SynergySphere positions itself as a platform that 
-doesn’t just organize — it orchestrates collaboration intelligently and proactively.
+## 🏗️ Architecture
 
-The Features We Provide: 
-1. Let users register/login 
-2. Create and manage projects 
-3. Add team members 
-4. Assign tasks with due dates and statuses 
-5. Communicate within each project 
-6. Visualize task progress in a clear, intuitive way 
-7. Send basic notifications for important events
+```mermaid
+graph TD
+    Client[Frontend UI - Next.js] -->|REST API Requests| FastAPI[Backend API - FastAPI]
+    FastAPI --> |PyMongo / Motor| MongoDB[(MongoDB Database)]
+    
+    subgraph Frontend [Frontend (Next.js)]
+        UI[Radix UI / Tailwind CSS]
+        State[React Hooks / Context]
+        Forms[React Hook Form / Zod]
+    end
+    
+    subgraph Backend [Backend (FastAPI)]
+        Auth[JWT Authentication]
+        Routes[Routers: Users, Orgs, Projects, Tasks, Comments]
+        DB_Models[Pydantic Models]
+    end
+    
+    Client --> Frontend
+    FastAPI --> Backend
+```
 
+## ✨ Key Features
+* **User Authentication & Management:** Secure registration and login using JWT tokens and password hashing (bcrypt). Search for users to invite them to projects.
+* **Organization Management:** Create dedicated organizations/workspaces and allow users to seamlessly join them.
+* **Project Management:** Create and manage projects with custom priorities, descriptions, deadlines, and tags. Assign roles (manager, contributor, viewer) to team members.
+* **Task Tracking:** Create, assign, and update tasks with statuses (pending, in-progress, completed). Track task progress visually.
+* **Team Communication:** Contextual commenting system built directly into tasks, ensuring discussions remain tied to actionable items.
+* **Real-time Notifications:** In-app notification system alerts users when they are assigned a task or when project updates occur.
+* **Modern UI/UX:** Responsive, accessible, and highly interactive interface built with Next.js, Tailwind CSS, and Radix UI components.
 
+## 📂 Folder Structure
+
+```text
+SynergySphere/
+├── backend/                  # FastAPI Backend
+│   ├── .env                  # Backend environment variables (ignored in version control)
+│   ├── init_db.py            # MongoDB database initialization & schema validation
+│   ├── main.py               # Main FastAPI application and API routes
+│   └── __pycache__/
+├── frontend/                 # Next.js Frontend
+│   ├── app/                  # Next.js App Router pages and layouts
+│   ├── components/           # Reusable Radix UI & custom React components
+│   ├── contexts/             # React context providers for global state
+│   ├── hooks/                # Custom React hooks
+│   ├── lib/                  # Utility functions and API client
+│   ├── public/               # Static assets
+│   ├── styles/               # Global CSS and Tailwind configurations
+│   ├── package.json          # Frontend dependencies and scripts
+│   ├── tailwind.config.js    # Tailwind CSS styling configuration
+│   └── tsconfig.json         # TypeScript configuration
+└── README.md                 # Project documentation
+```
+
+## 🛠️ Technology Stack
+* **Frontend:** Next.js, React, Tailwind CSS, Radix UI, TypeScript, React Hook Form, Zod.
+* **Backend:** Python, FastAPI, Pydantic, Passlib, JWT (jose).
+* **Database:** MongoDB (Motor async driver & PyMongo).
